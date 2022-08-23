@@ -9,11 +9,11 @@ NUM_SAMPLES = 1000
 
 np.random.seed(int(time.time()))
 
-xs = np.random.uniform(-2, 0.5, NUM_SAMPLES)
+xs = np.random.uniform(-2, 2, NUM_SAMPLES)
 np.random.shuffle(xs)
 print(xs[:5])
 
-ys = 2*xs**2 + 3*xs + 5
+ys = (xs + 1.7)*(xs + 0.7)*(xs - 0.3)*(xs - 1.3)*(xs - 1.9) + 0.2
 print(ys[:5])
 
 #plt.plot(xs, ys, 'b. ')
@@ -49,7 +49,7 @@ p_test = model_f.predict(x_test)
 # plt.legend()
 # plt.show()
 
-model_f.fit(x_train, y_train, epochs = 100) #x_train, y_train 데이터에 맞도록 학습함을 의미, epochs는 학습 횟수.
+model_f.fit(x_train, y_train, epochs = 200) #x_train, y_train 데이터에 맞도록 학습함을 의미, epochs는 학습 횟수.
 
 p_test = model_f.predict(x_test)
 
